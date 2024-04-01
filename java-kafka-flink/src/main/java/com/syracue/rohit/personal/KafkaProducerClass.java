@@ -35,6 +35,15 @@ public class KafkaProducerClass {
         }
     }
     
+    
+    /** 
+     * Method to get cryptocurrency details from url provided
+     * @param baseURL The base url of the api
+     * @param coins Comma seperated coin values
+     * @param currency Comma seperated currency values
+     * @param apiKey API key
+     * @return String Response from API
+     */
     public String getCoinPrice(String baseURL, String coins, String currency, String apiKey){
         try {
             String apiUrl = baseURL + coins + "&tsyms=" + currency + "&api_key=" + apiKey;
@@ -72,6 +81,9 @@ public class KafkaProducerClass {
         }
     }
 
+    /**
+     * Method to publish response from crypto API to the Kafka topic
+     */
     public void Producer() {
         String apiResponse;
         try{
